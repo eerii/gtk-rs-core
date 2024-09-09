@@ -32,6 +32,7 @@ build = "build.rs"
 description = "FFI bindings to libgobject-2.0"
 keywords = ["gobject", "ffi", "gtk-rs", "gnome"]
 name = "gobject-sys"
+links = "gobject-2.0"
 
 [package.authors]
 workspace = true

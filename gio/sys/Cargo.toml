@@ -41,6 +41,7 @@ build = "build.rs"
 description = "FFI bindings to libgio-2.0"
 keywords = ["gio", "ffi", "gtk-rs", "gnome"]
 name = "gio-sys"
+links = "gio-2.0"
 
 [package.authors]
 workspace = true
