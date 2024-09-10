@@ -16,6 +16,9 @@ version.workspace = true
 [lib]
 name = "glib"
 
+[build-dependencies]
+system-deps = "7"
+
 [dependencies]
 libc.workspace = true
 bitflags.workspace = true
@@ -66,6 +69,10 @@ required-features = ["compiletests"]
 [[bench]]
 name = "gstring"
 harness = false
+
+[package.metadata.system-deps.gobject_2_0]
+name = "gobject-2.0"
+version = "2.56"
 
 [package.metadata.docs.rs]
 all-features = true

@@ -1,7 +1,7 @@
 [submodule "gir"]
 	path = gir
-	url = https://github.com/gtk-rs/gir
-	update = none
+    url = https://github.com/eerii/gir
+    branch = nolink
 [submodule "gir-files"]
 	path = gir-files
 	url = https://github.com/gtk-rs/gir-files

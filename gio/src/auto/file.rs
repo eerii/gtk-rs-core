@@ -3,7 +3,7 @@
 // DO NOT EDIT
 
 use crate::{
-    AppInfo, AsyncResult, Cancellable, DriveStartFlags, FileAttributeInfoList, FileCopyFlags,
+    ffi, AppInfo, AsyncResult, Cancellable, DriveStartFlags, FileAttributeInfoList, FileCopyFlags,
     FileCreateFlags, FileEnumerator, FileIOStream, FileInfo, FileInputStream, FileMonitor,
     FileMonitorFlags, FileOutputStream, FileQueryInfoFlags, FileType, Mount, MountMountFlags,
     MountOperation, MountUnmountFlags,
@@ -267,6 +267,13 @@ pub trait FileExt: IsA<File> + sealed::Sealed + 'static {
             }
         }
     }
+
+    //#[cfg(feature = "v2_82")]
+    //#[cfg_attr(docsrs, doc(cfg(feature = "v2_82")))]
+    //#[doc(alias = "g_file_copy_async_with_closures")]
+    //fn copy_async_with_closures(&self, destination: &impl IsA<File>, flags: FileCopyFlags, io_priority: i32, cancellable: Option<&impl IsA<Cancellable>>, progress_callback_closure: Option<&glib::Closure>, ready_callback_closure: &glib::Closure) {
+    //    unsafe { TODO: call ffi:g_file_copy_async_with_closures() }
+    //}
 
     #[doc(alias = "g_file_copy_attributes")]
     fn copy_attributes(
@@ -1295,6 +1302,13 @@ pub trait FileExt: IsA<File> + sealed::Sealed + 'static {
             }
         }
     }
+
+    //#[cfg(feature = "v2_82")]
+    //#[cfg_attr(docsrs, doc(cfg(feature = "v2_82")))]
+    //#[doc(alias = "g_file_move_async_with_closures")]
+    //fn move_async_with_closures(&self, destination: &impl IsA<File>, flags: FileCopyFlags, io_priority: i32, cancellable: Option<&impl IsA<Cancellable>>, progress_callback_closure: Option<&glib::Closure>, ready_callback_closure: &glib::Closure) {
+    //    unsafe { TODO: call ffi:g_file_move_async_with_closures() }
+    //}
 
     #[doc(alias = "g_file_open_readwrite")]
     fn open_readwrite(

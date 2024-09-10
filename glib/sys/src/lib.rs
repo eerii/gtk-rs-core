@@ -1010,6 +1010,7 @@ pub const G_URI_PARAMS_PARSE_RELAXED: GUriParamsFlags = 4;
 
 // Unions
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GDoubleIEEE754 {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1023,6 +1024,7 @@ impl ::std::fmt::Debug for GDoubleIEEE754 {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GFloatIEEE754 {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1183,6 +1185,12 @@ pub type GSequenceIterCompareFunc =
 pub type GSourceDisposeFunc = Option<unsafe extern "C" fn(*mut GSource)>;
 pub type GSourceDummyMarshal = Option<unsafe extern "C" fn()>;
 pub type GSourceFunc = Option<unsafe extern "C" fn(gpointer) -> gboolean>;
+pub type GSourceFuncsCheckFunc = Option<unsafe extern "C" fn(*mut GSource) -> gboolean>;
+pub type GSourceFuncsDispatchFunc =
+    Option<unsafe extern "C" fn(*mut GSource, GSourceFunc, gpointer) -> gboolean>;
+pub type GSourceFuncsFinalizeFunc = Option<unsafe extern "C" fn(*mut GSource)>;
+pub type GSourceFuncsPrepareFunc =
+    Option<unsafe extern "C" fn(*mut GSource, *mut c_int) -> gboolean>;
 pub type GSourceOnceFunc = Option<unsafe extern "C" fn(gpointer)>;
 pub type GSpawnChildSetupFunc = Option<unsafe extern "C" fn(gpointer)>;
 pub type GTestDataFunc = Option<unsafe extern "C" fn(gconstpointer)>;
@@ -1201,6 +1209,7 @@ pub type GVoidFunc = Option<unsafe extern "C" fn()>;
 
 // Records
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GAllocator {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1225,6 +1234,7 @@ impl ::std::fmt::Debug for GArray {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GAsyncQueue {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1233,6 +1243,7 @@ pub struct _GAsyncQueue {
 pub type GAsyncQueue = _GAsyncQueue;
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GBookmarkFile {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1262,6 +1273,7 @@ impl ::std::fmt::Debug for GByteArray {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GBytes {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1274,6 +1286,7 @@ impl ::std::fmt::Debug for GBytes {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GCache {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1282,6 +1295,7 @@ pub struct _GCache {
 pub type GCache = _GCache;
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GChecksum {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1329,6 +1343,7 @@ impl ::std::fmt::Debug for GCond {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GData {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1353,6 +1368,7 @@ impl ::std::fmt::Debug for GDate {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GDateTime {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1381,6 +1397,7 @@ impl ::std::fmt::Debug for GDebugKey {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GDir {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1393,6 +1410,7 @@ impl ::std::fmt::Debug for GDir {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GDoubleIEEE754_mpn {
     pub mantissa_low: c_uint,
     _truncated_record_marker: c_void,
@@ -1426,6 +1444,7 @@ impl ::std::fmt::Debug for GError {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GFloatIEEE754_mpn {
     pub mantissa: c_uint,
     _truncated_record_marker: c_void,
@@ -1441,6 +1460,7 @@ impl ::std::fmt::Debug for GFloatIEEE754_mpn {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GHashTable {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1471,6 +1491,7 @@ impl ::std::fmt::Debug for GHashTableIter {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GHmac {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1531,6 +1552,7 @@ impl ::std::fmt::Debug for GHookList {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GIConv {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1539,6 +1561,7 @@ pub struct _GIConv {
 pub type GIConv = *mut _GIConv;
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GIOChannel {
     pub ref_count: c_int,
     pub funcs: *mut GIOFuncs,
@@ -1612,6 +1635,7 @@ impl ::std::fmt::Debug for GIOFuncs {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GKeyFile {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1660,6 +1684,7 @@ impl ::std::fmt::Debug for GLogField {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GMainContext {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1672,6 +1697,7 @@ impl ::std::fmt::Debug for GMainContext {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GMainLoop {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1684,6 +1710,7 @@ impl ::std::fmt::Debug for GMainLoop {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GMappedFile {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1696,6 +1723,7 @@ impl ::std::fmt::Debug for GMappedFile {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GMarkupParseContext {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1758,6 +1786,7 @@ impl ::std::fmt::Debug for GMarkupParser {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GMatchInfo {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1770,6 +1799,7 @@ impl ::std::fmt::Debug for GMatchInfo {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GMemChunk {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1837,6 +1867,7 @@ impl ::std::fmt::Debug for GOnce {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GOptionContext {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1871,6 +1902,7 @@ impl ::std::fmt::Debug for GOptionEntry {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GOptionGroup {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1895,6 +1927,7 @@ impl ::std::fmt::Debug for GPathBuf {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GPatternSpec {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1968,6 +2001,7 @@ impl ::std::fmt::Debug for GRWLock {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GRand {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -1993,6 +2027,7 @@ impl ::std::fmt::Debug for GRecMutex {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GRegex {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2005,6 +2040,7 @@ impl ::std::fmt::Debug for GRegex {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GRelation {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2077,6 +2113,7 @@ impl ::std::fmt::Debug for GScanner {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GScannerConfig {
     pub cset_skip_characters: *mut c_char,
     pub cset_identifier_first: *mut c_char,
@@ -2100,6 +2137,7 @@ impl ::std::fmt::Debug for GScannerConfig {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GSequence {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2108,6 +2146,7 @@ pub struct _GSequence {
 pub type GSequence = _GSequence;
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GSequenceIter {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2160,10 +2199,10 @@ impl ::std::fmt::Debug for GSourceCallbackFuncs {
 #[derive(Copy, Clone)]
 #[repr(C)]
 pub struct GSourceFuncs {
-    pub prepare: Option<unsafe extern "C" fn(*mut GSource, *mut c_int) -> gboolean>,
-    pub check: Option<unsafe extern "C" fn(*mut GSource) -> gboolean>,
-    pub dispatch: Option<unsafe extern "C" fn(*mut GSource, GSourceFunc, gpointer) -> gboolean>,
-    pub finalize: Option<unsafe extern "C" fn(*mut GSource)>,
+    pub prepare: GSourceFuncsPrepareFunc,
+    pub check: GSourceFuncsCheckFunc,
+    pub dispatch: GSourceFuncsDispatchFunc,
+    pub finalize: GSourceFuncsFinalizeFunc,
     pub closure_callback: GSourceFunc,
     pub closure_marshal: GSourceDummyMarshal,
 }
@@ -2180,6 +2219,7 @@ impl ::std::fmt::Debug for GSourceFuncs {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GSourcePrivate {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2188,6 +2228,7 @@ pub struct _GSourcePrivate {
 pub type GSourcePrivate = _GSourcePrivate;
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GStatBuf {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2214,6 +2255,7 @@ impl ::std::fmt::Debug for GString {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GStringChunk {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2222,6 +2264,7 @@ pub struct _GStringChunk {
 pub type GStringChunk = _GStringChunk;
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GStrvBuilder {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2234,6 +2277,7 @@ impl ::std::fmt::Debug for GStrvBuilder {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GTestCase {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2280,6 +2324,7 @@ impl ::std::fmt::Debug for GTestLogBuffer {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GTestSuite {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2403,6 +2448,7 @@ impl ::std::fmt::Debug for GTimeVal {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GTimeZone {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2415,6 +2461,7 @@ impl ::std::fmt::Debug for GTimeZone {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GTimer {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2437,6 +2484,7 @@ impl ::std::fmt::Debug for GTrashStack {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GTree {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2449,6 +2497,7 @@ impl ::std::fmt::Debug for GTree {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct _GTreeNode {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2489,6 +2538,7 @@ impl ::std::fmt::Debug for GUnixPipe {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GUri {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2517,6 +2567,7 @@ impl ::std::fmt::Debug for GUriParamsIter {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GVariant {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2605,6 +2656,7 @@ impl ::std::fmt::Debug for GVariantIter {
 }
 
 #[repr(C)]
+#[allow(dead_code)]
 pub struct GVariantType {
     _data: [u8; 0],
     _marker: core::marker::PhantomData<(*mut u8, core::marker::PhantomPinned)>,
@@ -2616,8 +2668,6 @@ impl ::std::fmt::Debug for GVariantType {
     }
 }
 
-#[link(name = "gobject-2.0")]
-#[link(name = "glib-2.0")]
 extern "C" {
 
     //=========================================================================
@@ -2824,7 +2874,7 @@ extern "C" {
         name: *const c_char,
         exec: *mut *mut c_char,
         count: *mut c_uint,
-        stamp: *mut c_long,
+        stamp: *mut time_t,
         error: *mut *mut GError,
     ) -> gboolean;
     #[cfg(feature = "v2_66")]
@@ -5261,6 +5311,9 @@ extern "C" {
     #[cfg(feature = "v2_68")]
     #[cfg_attr(docsrs, doc(cfg(feature = "v2_68")))]
     pub fn g_strv_builder_unref(builder: *mut GStrvBuilder);
+    #[cfg(feature = "v2_82")]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v2_82")))]
+    pub fn g_strv_builder_unref_to_strv(builder: *mut GStrvBuilder) -> c_char;
 
     //=========================================================================
     // GTestCase
@@ -6959,6 +7012,13 @@ extern "C" {
     ) -> *mut i64;
     pub fn g_slice_set_config(ckey: GSliceConfig, value: i64);
     pub fn g_snprintf(string: *mut c_char, n: c_ulong, format: *const c_char, ...) -> c_int;
+    pub fn g_sort_array(
+        array: *mut c_void,
+        n_elements: size_t,
+        element_size: size_t,
+        compare_func: GCompareDataFunc,
+        user_data: *mut c_void,
+    );
     pub fn g_spaced_primes_closest(num: c_uint) -> c_uint;
     pub fn g_spawn_async(
         working_directory: *const c_char,

@@ -2,7 +2,7 @@
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-use crate::Action;
+use crate::{ffi, Action};
 use glib::{
     prelude::*,
     signal::{connect_raw, SignalHandlerId},
@@ -46,6 +46,7 @@ impl SimpleAction {
     }
 
     #[doc(alias = "g_simple_action_set_enabled")]
+    #[doc(alias = "enabled")]
     pub fn set_enabled(&self, enabled: bool) {
         unsafe {
             ffi::g_simple_action_set_enabled(self.to_glib_none().0, enabled.into_glib());
@@ -53,6 +54,7 @@ impl SimpleAction {
     }
 
     #[doc(alias = "g_simple_action_set_state")]
+    #[doc(alias = "state")]
     pub fn set_state(&self, value: &glib::Variant) {
         unsafe {
             ffi::g_simple_action_set_state(self.to_glib_none().0, value.to_glib_none().0);
